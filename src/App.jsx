@@ -10,20 +10,20 @@ const Part = ({ name, exercises }) => {
   )
 }
 
-const Content = ({ part1, part2, part3 }) => {
+const Content = ({ parts }) => {
   return (
     <div>
-      <Part name={part1.name} exercises={part1.exercises} />
-      <Part name={part2.name} exercises={part2.exercises} />
-      <Part name={part3.name} exercises={part3.exercises} />
+      <Part name={parts[0].name} exercises={parts[0].exercises} />
+      <Part name={parts[1].name} exercises={parts[1].exercises} />
+      <Part name={parts[2].name} exercises={parts[2].exercises} />
     </div>
   )
 }
 
-const Total = ({ part1, part2, part3 }) => {
+const Total = ({ parts }) => {
   return (
     <p>
-      Number of units {part1.exercises + part2.exercises + part3.exercises}
+      Number of units {parts[0].exercises + parts[1].exercises + parts[2].exercises}
     </p>
   )
 }
@@ -31,36 +31,28 @@ const Total = ({ part1, part2, part3 }) => {
 const App = () => {
   const course = 'Industry Elective 1'
 
-  const part1 = {
-    name: 'CSIT321 - Applications Development and Emerging Technologies',
-    exercises: 3
-  }
-
-  const part2 = {
-    name: 'CSIT327 - Information Management 2',
-    exercises: 3
-  }
-
-  const part3 = {
-    name: 'CSIT340 - Industry Elective 1',
-    exercises: 3
-  }
+  const parts = [
+    {
+      name: 'CSIT321 - Applications Development and Emerging Technologies',
+      exercises: 3
+    },
+    {
+      name: 'CSIT327 - Information Management 2',
+      exercises: 3
+    },
+    {
+      name: 'CSIT340 - Industry Elective 1',
+      exercises: 3
+    }
+  ]
 
   return (
     <div>
       <Header course={course} />
 
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Content parts={parts} />
 
-      <Total
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Total parts={parts} />
     </div>
   )
 }
