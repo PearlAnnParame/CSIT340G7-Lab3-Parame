@@ -28,31 +28,47 @@ const Total = ({ parts }) => {
   )
 }
 
-const App = () => {
-  const course = 'Industry Elective 1'
+const Footer = ({ fullName, courseCode, section }) => {
+  return (
+    <footer>
+      {fullName} - {courseCode} - {section}
+    </footer>
+  )
+}
 
-  const parts = [
-    {
-      name: 'CSIT321 - Applications Development and Emerging Technologies',
-      exercises: 3
-    },
-    {
-      name: 'CSIT327 - Information Management 2',
-      exercises: 3
-    },
-    {
-      name: 'CSIT340 - Industry Elective 1',
-      exercises: 3
-    }
-  ]
+const App = () => {
+  const course = {
+    name: 'Industry Elective 1',
+    parts: [
+      {
+        name: 'CSIT321 - Applications Development and Emerging Technologies',
+        exercises: 3
+      },
+      {
+        name: 'CSIT327 - Information Management 2',
+        exercises: 3
+      },
+      {
+        name: 'CSIT340 - Industry Elective 1',
+        exercises: 3
+      }
+    ]
+  }
+
+  const fullName = 'Pearl Ann Arbuis Parame'
+  const courseCode = 'CSIT340'
+  const section = 'G7'
 
   return (
     <div>
-      <Header course={course} />
-
-      <Content parts={parts} />
-
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+      <Footer
+        fullName={fullName}
+        courseCode={courseCode}
+        section={section}
+      />
     </div>
   )
 }
